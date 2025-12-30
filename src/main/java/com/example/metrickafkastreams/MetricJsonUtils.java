@@ -7,6 +7,7 @@ public class MetricJsonUtils {
 
     public static double getTotalCpuPercent(String value) {
         return ((JsonObject) new JsonParser().parseString(value)).get("system")
+                .getAsJsonObject().get("cpu")
                 .getAsJsonObject().get("total")
                 .getAsJsonObject().get("norm")
                 .getAsJsonObject().get("pct").getAsDouble();
